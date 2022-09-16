@@ -6,8 +6,477 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="image/favicon.ico" />
     <link rel="stylesheet" href="css/小米.css" />
-
     <title>小米首页</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+}
+body {
+  text-align: center;
+  font-family: Helvetica Neue, Helvetica, Arial, Microsoft Yahei,
+    Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+input button img {
+  border: none;
+  vertical-align: middle;
+}
+/* 头部样式开始 */
+.header {
+  width: 100%;
+  height: 40px;
+  background-color: #333;
+  line-height: 40px;
+  color: #b0b0b0;
+  font-size: 12px;
+}
+.wrap {
+  width: 1226px;
+  margin: 0 auto;
+}
+.header-left {
+  float: left;
+}
+.header-right {
+  float: right;
+}
+.header li {
+  float: left;
+}
+.header a {
+  color: #b0b0b0;
+}
+.header span {
+  color: #424242;
+  margin: 0 3.6px;
+}
+.header a:hover {
+  color: #fff;
+}
+.cart {
+  position: relative;
+}
+.header .cart:hover {
+  color: #ff6700;
+}
+.cart-list {
+  position: absolute;
+  display: none;
+  top: 40px;
+  right: 0;
+  width: 316px;
+  height: 100px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  line-height: 100px;
+  text-align: center;
+  color: #424242;
+}
+/* 头部样式结束 */
+/* 导航样式开始 */
+.nav {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}
+.logo {
+  float: left;
+  width: 62px;
+  height: 56px;
+  margin-top: 22px;
+  text-align: left;
+}
+.logo img {
+  widows: 56px;
+  height: 56px;
+}
+.logo img:hover {
+  transform: translateX(1px);
+}
+.nav-bar {
+  float: left;
+  width: 868px;
+  height: 100px;
+  padding-left: 172px;
+  box-sizing: border-box;
+}
+.nav-bar > ul > li {
+  float: left;
+  padding: 38px 10px;
+  font-size: 16px;
+}
+.nav-bar > ul > li > a:hover {
+  color: #ff6700;
+}
+.search {
+  position: relative;
+  float: left;
+  width: 296px;
+  height: 50px;
+  margin-top: 25px;
+}
+.search > input {
+  float: left;
+  width: 245px;
+  height: 50px;
+  border: 1px solid #e0e0e0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  outline-style: none;
+  transition: all.2s;
+}
+.search > input:hover,
+.search > input:hover + a {
+  border-color: #e0e0e0;
+}
+.search > input:focus,
+.search > input:focus + a {
+  border-color: #ff6700;
+}
+.search > a > img {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #e0e0e0;
+  box-sizing: border-box;
+}
+.search > a > img:hover {
+  border-color: #ff6700;
+  transition: all.2s;
+}
+/* 搜索框 */
+.search-list {
+  z-index: 800;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 246px;
+  height: 241px;
+  border: 1px solid #ff6700;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: none;
+}
+.search > input:focus ~ .search-list {
+  display: block;
+}
+.search-list > a {
+  display: block;
+  padding: 6px 15px;
+  width: 215px;
+  height: 18px;
+  color: #424242;
+  font-size: 12px;
+  text-align: left;
+}
+.search-list > a:hover {
+  background-color: #e0e0e0;
+}
+/* 导航样式结束 */
+/* banner样式开始  */
+.banner {
+  width: 100%;
+  height: 460px;
+}
+.banner-box {
+  width: 1225px;
+  height: 460px;
+  background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/053d963a35ffe0654dfc2ac3d20466ee.jpg?w=2452&h=920);
+  background-size: 100%;
+  animation: banner 6s linear infinite;
+}
+.banner-box:hover {
+  animation-play-state: paused;
+}
+@keyframes banner {
+  0% {
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/053d963a35ffe0654dfc2ac3d20466ee.jpg?w=2452&h=920);
+  }
+  50% {
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/485756314f3e3f870d298db61339b891.jpg?thumb=1&w=1533&h=575&f=webp&q=90);
+  }
+  100% {
+    background-image: url(https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/fb9e3201ac236e7d93d98d80cd56f185.jpg?thumb=1&w=1533&h=575&f=webp&q=90);
+  }
+}
+/* 滑动门部分 */
+.banner > .wrap {
+  position: relative;
+}
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 234px;
+  height: 420px;
+  padding: 20px 0;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.slide > ul > li {
+  height: 42px;
+  line-height: 42px;
+  text-align: left;
+  padding-left: 30px;
+}
+.slide > ul > li > span {
+  float: right;
+  color: #fff;
+  text-align: right;
+  font-size: 16px;
+  margin-right: 20px;
+}
+.slide > ul > li:hover {
+  background-color: #ff6700;
+}
+.slide > ul > li > a {
+  color: #fff;
+  font-size: 14px;
+}
+.slide-list {
+  z-index: 700;
+  position: absolute;
+  top: 0;
+  left: 234px;
+  width: 1032px;
+  height: 456px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 0;
+  padding-top: 2px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  display: none;
+}
+.slide li:hover > .slide-list {
+  display: block;
+}
+.slide-list > ul {
+  width: 258px;
+  float: left;
+}
+.slide-list li {
+  width: 100%;
+  height: 76px;
+  padding: 18px 0 18px 20px;
+  box-sizing: border-box;
+}
+.slide-list img {
+  margin-right: 12px;
+}
+.slide-list span {
+  line-height: 40px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slide-list li:hover span {
+  color: #ff6700;
+}
+.slide-list1 {
+  width: 774px;
+}
+/* 左右箭头 */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  margin-top: -34.5px;
+  width: 41px;
+  height: 69px;
+  /* background-color: red; */
+  background-image: url("../image/icon-slides.png");
+  cursor: pointer;
+}
+.prev {
+  left: 234px;
+  background-position: -83px;
+}
+.next {
+  right: 0px;
+  background-position: -124px;
+}
+.prev:hover {
+  background-position: 0px;
+}
+.next:hover {
+  background-position: -42px;
+}
+/* banner样式结束  */
+/* 广告样式开始 */
+.adv {
+  width: 100%;
+  height: 170px;
+  margin: 14px 0 26px;
+}
+.adv .adv-side {
+  float: left;
+  width: 234px;
+  height: 170px;
+  padding: 3px;
+  box-sizing: border-box;
+  background-color: #5f5750;
+}
+.adv .adv-img {
+  margin-left: 14.6px;
+  float: left;
+  width: 316px;
+  height: 170px;
+  transition: all.2s linear;
+}
+.adv-img img {
+  width: 100%;
+}
+.adv-img:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.adv-side li {
+  position: relative;
+  float: left;
+  width: 76px;
+  height: 82px;
+  padding: 19px 0;
+  box-sizing: border-box;
+}
+.adv-side a {
+  display: block;
+  line-height: 44px;
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.7;
+  transition: all.2s;
+}
+.adv-side a:hover {
+  opacity: 1;
+}
+.row::after,
+.col::before {
+  position: absolute;
+  background-color: #665e57;
+  content: "";
+}
+.row::after {
+  bottom: 0;
+  left: 6px;
+  height: 1px;
+  width: 64px;
+}
+.col::before {
+  top: 6px;
+  right: 0;
+  width: 1px;
+  height: 70px;
+}
+/* 广告样式结束 */
+/* 主体样式开始 */
+.container {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 4px 0 12px;
+}
+/* 手机样式开始 */
+.home-banner-box {
+  width: 100%;
+  height: 120px;
+  margin: 22px 0;
+}
+.home-banner-box a img {
+  width: 100%;
+}
+.title {
+  color: #333;
+  font-size: 22px;
+  font-weight: 200;
+  text-align: left;
+  line-height: 58px;
+}
+.title a {
+  float: right;
+  font-size: 16px;
+  line-height: 58px;
+  color: #424242;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.title a:hover {
+  color: #ff6700;
+}
+.home-box {
+  width: 100%;
+  height: 614px;
+}
+.home-box-left {
+  float: left;
+  width: 234px;
+  height: 614px;
+}
+.home-box-left a img {
+  width: 234px;
+  height: 614px;
+}
+.home-box-left a img:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: all.2s linear;
+}
+.home-box-right {
+  float: left;
+  width: 992px;
+  height: 614px;
+}
+.home-box-right ul li {
+  width: 234px;
+  height: 300px;
+  background-color: #fff;
+  float: left;
+  margin-bottom: 14px;
+  margin-left: 14px;
+}
+.home-box-right ul li:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: all.2s linear;
+}
+.img1 {
+  width: 160px;
+  margin-top: 20px;
+  margin-bottom: 18px;
+}
+.title1,
+.title2 {
+  width: 214px;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.title1 {
+  height: 21px;
+  line-height: 21px;
+  width: 214px;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.title2 {
+  height: 18px;
+  line-height: 18px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #b0b0b0;
+}
+.title3 {
+  font-size: 14px;
+  color: #ff6700;
+}
+/* 手机样式结束 */
+/* 主体样式结束 */
+    </style>
   </head>
   <body>
     <!-- 头部开始 -->
